@@ -70,7 +70,7 @@ public class paymentPage extends Base_astro{
 		click(equis);
 		click(exit);
 		switchNormal();
-		waiting(3000);
+			waiting(3000);
 		
 	}
 	

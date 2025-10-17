@@ -13,9 +13,10 @@ Homepage_astro hometab; //ESTO ES INSTANCIACIÓN. FORMATO: CLASE - variable ("AP
 
 @BeforeClass
 public void start () throws Exception {
+	driver = Homepage_astro.startChrome();
 	hometab = new Homepage_astro(driver); /*Esto es un metodo especial llamado CONSTRUCTOR PARA CREAR UN OBJETO "DRIVER"
 	QUE SIRVE PARA INICIARLA EL CHROMEDRIVER Y MANDARLA A HOMEPAGE*/
-	driver = hometab.chromeDriverConnection();
+	
 	hometab.apertura();
 }
 

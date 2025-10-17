@@ -27,19 +27,24 @@ public class Base_astro {
 		y no otra variable que se llame igual*/
 		
 	}
+	public static WebDriver startChrome() {		
+		io.github.bonigarcia.wdm.WebDriverManager.chromedriver().setup();
+		return new ChromeDriver();		
+	}
 	
-	public WebDriver chromeDriverConnection() { //conecta el driver que descargamos con el navegador en sí
+	/*public WebDriver chromeDriverConnection() { //conecta el driver que descargamos con el navegador en sí
 		
 		System.setProperty("webdriver.chrome.driver","./src/webDrivers/chromedriver.exe");
 		driver = new ChromeDriver(); //esta linea le asigna a la variable driver la facultad de iniciar chrome
 		return driver; //ya una vez asignada la facultad de driver, lo regresa al tipo de la variable		
-	}
+	}*/
 	
 	public void apertura() {
 		driver.manage().window().maximize();
 		driver.get("https://crypto.shift4.com/demo/space-shop");
 		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
 	}
+			
 	
 	public void click(By locator) {
 		driver.findElement(locator).click();
@@ -51,7 +56,9 @@ public class Base_astro {
 	public void waiting(int miliseconds) throws InterruptedException {
 		Thread.sleep(miliseconds);
 	}
-	public void switchNewTab() {
+	
+	
+	public void switchNewTab() {		
 		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(5));
 		wait.until(ExpectedConditions.numberOfWindowsToBe(2));
         
